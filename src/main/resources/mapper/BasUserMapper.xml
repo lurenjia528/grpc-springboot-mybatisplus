@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csse.grpc.dao.BasUserMapper">
+
+    <resultMap id="BasUserMap" type="com.csse.grpc.model.BasUser">
+        <id column="USER_ID" property="userId" />
+        <result column="USER_NO" property="userNo" />
+        <result column="USER_NAME" property="userName" />
+        <result column="USER_HEAD" property="userHead" />
+        <result column="NICK_NAME" property="nickName" />
+        <result column="PERSON_NAME" property="personName" />
+        <result column="PINY_NAME" property="pinyName" />
+    </resultMap>
+
+
+    <select id="selectUserPage" resultMap="BasUserMap">
+        select user_id ,user_no,user_name,user_head,nick_name,person_name,piny_name
+        from grpc.bas_user
+        where 1=1
+        <if test="searchName!=null and searchName!=''">
+            AND instr(person_name,#{searchName,jdbcType=VARCHAR})&gt;0
+        </if>
+    </select>
+
+</mapper>

@@ -1,0 +1,47 @@
+server:
+  port: 8081
+
+
+spring:
+  datasource:
+    type: dm.jdbc.pool.DmdbDataSource
+    url: jdbc:dm://192.168.17.187:5236/grpc
+    username: SYSDBA
+    password: SYSDBA
+    driver-class-name: dm.jdbc.driver.DmDriver
+    tomcat:
+      max-active: 0
+      max-wait: -1
+      max-idle: 0
+      min-idle: 0
+#  http:
+#    multipart:
+#      enabled: true
+#      resolve-lazily: true
+#      max-file-size: 2MB
+#      max-request-size: 2MB
+mybatis-plus:
+  global-config:
+    db-config:
+      db-type: dm
+      table-underline: true
+    banner: false
+  mapper-locations: classpath:/mapper/**Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    call-setters-on-nulls: true
+    cache-enabled: true
+    map-underscore-to-camel-case: true
+grpc:
+  server:
+    port: 9090
+  client:
+    mygrpcclient:
+      address: 'static://127.0.0.1:9090'
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: plaintext
+#logging:
+#  level:
+#    com.csse.grpc: debug
+

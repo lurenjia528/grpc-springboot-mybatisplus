@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+//import "google/protobuf/wrappers.proto";
+//import "google/protobuf/struct.proto";
+
+option java_multiple_files = true;
+option java_package = "com.csse.grpc.generate";
+option java_outer_classname = "UserProto";
+option java_generic_services = true;
+
+
+
+message UserRequest {
+  string userId = 1;
+  string userNo = 2;
+  string userName = 3;
+  string userHead = 4 ;
+  string nickName = 5;
+  string personName = 6;
+  string pinyName = 7;
+}
+
+message Response {
+  ResponseCode code = 1;
+  string msg = 2;
+  UserRequest data = 3;
+}
+
+enum ResponseCode {
+  DEFAULT = 0;
+  FAIL = 500;
+  SUCCESS = 200;
+}
+
+message PageParam{
+  int64 pageNo = 1;//当前是第几页
+  int64 pageSize = 2;//每页多少条
+}
+
+message AllUser {
+  ResponseCode code = 1;
+  string msg = 2 [json_name = "message"];
+  repeated UserRequest data = 3;
+}
+
+// service 方法参数 只接受message返回message
+service UserService {
+  rpc GetUser(UserRequest) returns(Response){} ;
+  rpc DeleteUser(UserRequest) returns(Response) {} ;
+  rpc GetUserAll(PageParam) returns(AllUser){};
+  // 空
+  rpc Get(google.protobuf.Empty)returns(google.protobuf.Empty){};
+}
