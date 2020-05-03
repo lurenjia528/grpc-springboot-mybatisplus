@@ -154,6 +154,37 @@ public final class UserServiceGrpc {
     return getGetMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.csse.grpc.generate.Message,
+      com.csse.grpc.generate.Message> getTestStreamMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "TestStream",
+      requestType = com.csse.grpc.generate.Message.class,
+      responseType = com.csse.grpc.generate.Message.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+  public static io.grpc.MethodDescriptor<com.csse.grpc.generate.Message,
+      com.csse.grpc.generate.Message> getTestStreamMethod() {
+    io.grpc.MethodDescriptor<com.csse.grpc.generate.Message, com.csse.grpc.generate.Message> getTestStreamMethod;
+    if ((getTestStreamMethod = UserServiceGrpc.getTestStreamMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getTestStreamMethod = UserServiceGrpc.getTestStreamMethod) == null) {
+          UserServiceGrpc.getTestStreamMethod = getTestStreamMethod =
+              io.grpc.MethodDescriptor.<com.csse.grpc.generate.Message, com.csse.grpc.generate.Message>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "TestStream"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.csse.grpc.generate.Message.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.csse.grpc.generate.Message.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("TestStream"))
+              .build();
+        }
+      }
+    }
+    return getTestStreamMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -236,6 +267,13 @@ public final class UserServiceGrpc {
       asyncUnimplementedUnaryCall(getGetMethod(), responseObserver);
     }
 
+    /**
+     */
+    public io.grpc.stub.StreamObserver<com.csse.grpc.generate.Message> testStream(
+        io.grpc.stub.StreamObserver<com.csse.grpc.generate.Message> responseObserver) {
+      return asyncUnimplementedStreamingCall(getTestStreamMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -266,6 +304,13 @@ public final class UserServiceGrpc {
                 com.google.protobuf.Empty,
                 com.google.protobuf.Empty>(
                   this, METHODID_GET)))
+          .addMethod(
+            getTestStreamMethod(),
+            asyncBidiStreamingCall(
+              new MethodHandlers<
+                com.csse.grpc.generate.Message,
+                com.csse.grpc.generate.Message>(
+                  this, METHODID_TEST_STREAM)))
           .build();
     }
   }
@@ -320,6 +365,14 @@ public final class UserServiceGrpc {
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<com.csse.grpc.generate.Message> testStream(
+        io.grpc.stub.StreamObserver<com.csse.grpc.generate.Message> responseObserver) {
+      return asyncBidiStreamingCall(
+          getChannel().newCall(getTestStreamMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -429,6 +482,7 @@ public final class UserServiceGrpc {
   private static final int METHODID_DELETE_USER = 1;
   private static final int METHODID_GET_USER_ALL = 2;
   private static final int METHODID_GET = 3;
+  private static final int METHODID_TEST_STREAM = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -473,6 +527,9 @@ public final class UserServiceGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_TEST_STREAM:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.testStream(
+              (io.grpc.stub.StreamObserver<com.csse.grpc.generate.Message>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -528,6 +585,7 @@ public final class UserServiceGrpc {
               .addMethod(getDeleteUserMethod())
               .addMethod(getGetUserAllMethod())
               .addMethod(getGetMethod())
+              .addMethod(getTestStreamMethod())
               .build();
         }
       }

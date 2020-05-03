@@ -5,6 +5,9 @@ import com.csse.grpc.dao.BasUserMapper;
 import com.csse.grpc.generate.*;
 import com.csse.grpc.model.BasUser;
 import com.google.protobuf.Empty;
+import io.grpc.Metadata;
+import io.grpc.Status;
+import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 
@@ -21,30 +24,30 @@ public class GrpcController extends UserServiceGrpc.UserServiceImplBase {
     @Resource
     private BasUserMapper basUserMapper;
 
-//    @Override
-//    public void getUser(UserRequest request, StreamObserver<Response> responseObserver) {
-//        String userId = request.getUserId();
-//
-//
-//        BasUser basUser = basUserMapper.selectById(userId);
-//        System.out.println(basUser);
-//
-//        Response response = Response
-//                .newBuilder()
-//                .setCode(ResponseCode.SUCCESS)
-//                .setMsg("查询成功")
-//                .setData(UserRequest.newBuilder()
-//                        .setUserId(basUser.getUserId())
-//                        .setUserNo(basUser.getUserNo())
-//                        .setUserName(basUser.getUserName())
-//                        .setUserHead(null == basUser.getUserHead() ? "" : basUser.getUserHead())
-//                        .setPersonName(basUser.getPersonName())
-//                        .setPinyName(basUser.getPinyName())
-//                        .build())
-//                .build();
-//        responseObserver.onNext(response);
-//        responseObserver.onCompleted();
-//    }
+    @Override
+    public void getUser(UserRequest request, StreamObserver<Response> responseObserver) {
+        String userId = request.getUserId();
+
+
+        BasUser basUser = basUserMapper.selectById(userId);
+        System.out.println(basUser);
+
+        Response response = Response
+                .newBuilder()
+                .setCode(ResponseCode.SUCCESS)
+                .setMsg("查询成功")
+                .setData(UserRequest.newBuilder()
+                        .setUserId(basUser.getUserId())
+                        .setUserNo(basUser.getUserNo())
+                        .setUserName(basUser.getUserName())
+                        .setUserHead(null == basUser.getUserHead() ? "" : basUser.getUserHead())
+                        .setPersonName(basUser.getPersonName())
+                        .setPinyName(basUser.getPinyName())
+                        .build())
+                .build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
 
     @Override
     public void deleteUser(UserRequest request, StreamObserver<Response> responseObserver) {
@@ -84,7 +87,44 @@ public class GrpcController extends UserServiceGrpc.UserServiceImplBase {
     public void get(Empty request, StreamObserver<Empty> responseObserver) {
         Empty build = Empty.newBuilder().build();
         System.out.println("kong");
+        if (null != build) {
+            throw new StatusRuntimeException(Status.NOT_FOUND
+                    .withCause(new NullPointerException().getCause())
+                    .withDescription("test exception"), new Metadata());
+        }
+//        int a = 3/0;
         responseObserver.onNext(build);
         responseObserver.onCompleted();
+    }
+
+    @Override
+    public StreamObserver<Message> testStream(StreamObserver<Message> responseObserver) {
+        return new StreamObserver<Message>() {
+            @Override
+            public void onNext(Message value) {
+                System.out.println("服务端：收到请求");
+                while (true) {
+                    Message msg = Message.newBuilder().setType("123").setData("直播").build();
+                    responseObserver.onNext(msg);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                System.out.printf("服务端：发生错误:%s", t.getCause());
+            }
+
+            @Override
+            public void onCompleted() {
+                System.out.println("服务端：完成");
+                responseObserver.onCompleted();
+            }
+        };
+
     }
 }

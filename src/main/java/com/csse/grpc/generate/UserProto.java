@@ -34,6 +34,11 @@ public final class UserProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_AllUser_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Message_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Message_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -53,14 +58,16 @@ public final class UserProto {
       "\n\tPageParam\022\016\n\006pageNo\030\001 \001(\003\022\020\n\010pageSize\030" +
       "\002 \001(\003\"X\n\007AllUser\022\033\n\004code\030\001 \001(\0162\r.Respons" +
       "eCode\022\024\n\003msg\030\002 \001(\tR\007message\022\032\n\004data\030\003 \003(" +
-      "\0132\014.UserRequest*4\n\014ResponseCode\022\013\n\007DEFAU" +
-      "LT\020\000\022\t\n\004FAIL\020\364\003\022\014\n\007SUCCESS\020\310\0012\273\001\n\013UserSe" +
-      "rvice\022$\n\007GetUser\022\014.UserRequest\032\t.Respons" +
-      "e\"\000\022\'\n\nDeleteUser\022\014.UserRequest\032\t.Respon" +
-      "se\"\000\022$\n\nGetUserAll\022\n.PageParam\032\010.AllUser" +
-      "\"\000\0227\n\003Get\022\026.google.protobuf.Empty\032\026.goog" +
-      "le.protobuf.Empty\"\000B(\n\026com.csse.grpc.gen" +
-      "erateB\tUserProtoP\001\210\001\001b\006proto3"
+      "\0132\014.UserRequest\"%\n\007Message\022\014\n\004type\030\001 \001(\t" +
+      "\022\014\n\004data\030\002 \001(\t*4\n\014ResponseCode\022\013\n\007DEFAUL" +
+      "T\020\000\022\t\n\004FAIL\020\364\003\022\014\n\007SUCCESS\020\310\0012\343\001\n\013UserSer" +
+      "vice\022$\n\007GetUser\022\014.UserRequest\032\t.Response" +
+      "\"\000\022\'\n\nDeleteUser\022\014.UserRequest\032\t.Respons" +
+      "e\"\000\022$\n\nGetUserAll\022\n.PageParam\032\010.AllUser\"" +
+      "\000\0227\n\003Get\022\026.google.protobuf.Empty\032\026.googl" +
+      "e.protobuf.Empty\"\000\022&\n\nTestStream\022\010.Messa" +
+      "ge\032\010.Message\"\000(\0010\001B(\n\026com.csse.grpc.gene" +
+      "rateB\tUserProtoP\001\210\001\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -91,6 +98,12 @@ public final class UserProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AllUser_descriptor,
         new java.lang.String[] { "Code", "Msg", "Data", });
+    internal_static_Message_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_Message_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Message_descriptor,
+        new java.lang.String[] { "Type", "Data", });
     com.google.protobuf.EmptyProto.getDescriptor();
   }
 
