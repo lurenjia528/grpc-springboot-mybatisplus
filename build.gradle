@@ -35,6 +35,9 @@ dependencies {
     compile("net.devh:grpc-server-spring-boot-starter:2.7.0.RELEASE")
     compile("net.devh:grpc-client-spring-boot-starter:2.7.0.RELEASE")
 
+    //docker
+    compile group: 'com.github.docker-java', name: 'docker-java', version: '3.2.1'
+
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'

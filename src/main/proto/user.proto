@@ -51,4 +51,5 @@ service UserService {
   rpc GetUserAll(PageParam) returns(AllUser){};
   // 空
   rpc Get(google.protobuf.Empty)returns(google.protobuf.Empty){};
+  rpc TestStream(stream google.protobuf.Empty)returns(stream google.protobuf.Empty){};
 }

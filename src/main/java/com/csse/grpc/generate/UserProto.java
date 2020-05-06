@@ -54,13 +54,15 @@ public final class UserProto {
       "\002 \001(\003\"X\n\007AllUser\022\033\n\004code\030\001 \001(\0162\r.Respons" +
       "eCode\022\024\n\003msg\030\002 \001(\tR\007message\022\032\n\004data\030\003 \003(" +
       "\0132\014.UserRequest*4\n\014ResponseCode\022\013\n\007DEFAU" +
-      "LT\020\000\022\t\n\004FAIL\020\364\003\022\014\n\007SUCCESS\020\310\0012\273\001\n\013UserSe" +
+      "LT\020\000\022\t\n\004FAIL\020\364\003\022\014\n\007SUCCESS\020\310\0012\377\001\n\013UserSe" +
       "rvice\022$\n\007GetUser\022\014.UserRequest\032\t.Respons" +
       "e\"\000\022\'\n\nDeleteUser\022\014.UserRequest\032\t.Respon" +
       "se\"\000\022$\n\nGetUserAll\022\n.PageParam\032\010.AllUser" +
       "\"\000\0227\n\003Get\022\026.google.protobuf.Empty\032\026.goog" +
-      "le.protobuf.Empty\"\000B(\n\026com.csse.grpc.gen" +
-      "erateB\tUserProtoP\001\210\001\001b\006proto3"
+      "le.protobuf.Empty\"\000\022B\n\nTestStream\022\026.goog" +
+      "le.protobuf.Empty\032\026.google.protobuf.Empt" +
+      "y\"\000(\0010\001B(\n\026com.csse.grpc.generateB\tUserP" +
+      "rotoP\001\210\001\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

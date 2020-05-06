@@ -87,4 +87,24 @@ public class GrpcController extends UserServiceGrpc.UserServiceImplBase {
         responseObserver.onNext(build);
         responseObserver.onCompleted();
     }
+
+    @Override
+    public StreamObserver<Empty> testStream(StreamObserver<Empty> responseObserver) {
+        return new StreamObserver<Empty>() {
+            @Override
+            public void onNext(Empty value) {
+
+            }
+
+            @Override
+            public void onError(Throwable t) {
+
+            }
+
+            @Override
+            public void onCompleted() {
+
+            }
+        };
+    }
 }

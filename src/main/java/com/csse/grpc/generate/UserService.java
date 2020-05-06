@@ -51,6 +51,14 @@ public  abstract class UserService
         com.google.protobuf.Empty request,
         com.google.protobuf.RpcCallback<com.google.protobuf.Empty> done);
 
+    /**
+     * <code>rpc TestStream(stream .google.protobuf.Empty) returns (stream .google.protobuf.Empty);</code>
+     */
+    public abstract void testStream(
+        com.google.protobuf.RpcController controller,
+        com.google.protobuf.Empty request,
+        com.google.protobuf.RpcCallback<com.google.protobuf.Empty> done);
+
   }
 
   public static com.google.protobuf.Service newReflectiveService(
@@ -88,6 +96,14 @@ public  abstract class UserService
         impl.get(controller, request, done);
       }
 
+      @java.lang.Override
+      public  void testStream(
+          com.google.protobuf.RpcController controller,
+          com.google.protobuf.Empty request,
+          com.google.protobuf.RpcCallback<com.google.protobuf.Empty> done) {
+        impl.testStream(controller, request, done);
+      }
+
     };
   }
 
@@ -118,6 +134,8 @@ public  abstract class UserService
             return impl.getUserAll(controller, (com.csse.grpc.generate.PageParam)request);
           case 3:
             return impl.get(controller, (com.google.protobuf.Empty)request);
+          case 4:
+            return impl.testStream(controller, (com.google.protobuf.Empty)request);
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -140,6 +158,8 @@ public  abstract class UserService
             return com.csse.grpc.generate.PageParam.getDefaultInstance();
           case 3:
             return com.google.protobuf.Empty.getDefaultInstance();
+          case 4:
+            return com.google.protobuf.Empty.getDefaultInstance();
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -161,6 +181,8 @@ public  abstract class UserService
           case 2:
             return com.csse.grpc.generate.AllUser.getDefaultInstance();
           case 3:
+            return com.google.protobuf.Empty.getDefaultInstance();
+          case 4:
             return com.google.protobuf.Empty.getDefaultInstance();
           default:
             throw new java.lang.AssertionError("Can't get here.");
@@ -202,6 +224,14 @@ public  abstract class UserService
    * <code>rpc Get(.google.protobuf.Empty) returns (.google.protobuf.Empty);</code>
    */
   public abstract void get(
+      com.google.protobuf.RpcController controller,
+      com.google.protobuf.Empty request,
+      com.google.protobuf.RpcCallback<com.google.protobuf.Empty> done);
+
+  /**
+   * <code>rpc TestStream(stream .google.protobuf.Empty) returns (stream .google.protobuf.Empty);</code>
+   */
+  public abstract void testStream(
       com.google.protobuf.RpcController controller,
       com.google.protobuf.Empty request,
       com.google.protobuf.RpcCallback<com.google.protobuf.Empty> done);
@@ -248,6 +278,11 @@ public  abstract class UserService
           com.google.protobuf.RpcUtil.<com.google.protobuf.Empty>specializeCallback(
             done));
         return;
+      case 4:
+        this.testStream(controller, (com.google.protobuf.Empty)request,
+          com.google.protobuf.RpcUtil.<com.google.protobuf.Empty>specializeCallback(
+            done));
+        return;
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -270,6 +305,8 @@ public  abstract class UserService
         return com.csse.grpc.generate.PageParam.getDefaultInstance();
       case 3:
         return com.google.protobuf.Empty.getDefaultInstance();
+      case 4:
+        return com.google.protobuf.Empty.getDefaultInstance();
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -291,6 +328,8 @@ public  abstract class UserService
       case 2:
         return com.csse.grpc.generate.AllUser.getDefaultInstance();
       case 3:
+        return com.google.protobuf.Empty.getDefaultInstance();
+      case 4:
         return com.google.protobuf.Empty.getDefaultInstance();
       default:
         throw new java.lang.AssertionError("Can't get here.");
@@ -372,6 +411,21 @@ public  abstract class UserService
           com.google.protobuf.Empty.class,
           com.google.protobuf.Empty.getDefaultInstance()));
     }
+
+    public  void testStream(
+        com.google.protobuf.RpcController controller,
+        com.google.protobuf.Empty request,
+        com.google.protobuf.RpcCallback<com.google.protobuf.Empty> done) {
+      channel.callMethod(
+        getDescriptor().getMethods().get(4),
+        controller,
+        request,
+        com.google.protobuf.Empty.getDefaultInstance(),
+        com.google.protobuf.RpcUtil.generalizeCallback(
+          done,
+          com.google.protobuf.Empty.class,
+          com.google.protobuf.Empty.getDefaultInstance()));
+    }
   }
 
   public static BlockingInterface newBlockingStub(
@@ -396,6 +450,11 @@ public  abstract class UserService
         throws com.google.protobuf.ServiceException;
 
     public com.google.protobuf.Empty get(
+        com.google.protobuf.RpcController controller,
+        com.google.protobuf.Empty request)
+        throws com.google.protobuf.ServiceException;
+
+    public com.google.protobuf.Empty testStream(
         com.google.protobuf.RpcController controller,
         com.google.protobuf.Empty request)
         throws com.google.protobuf.ServiceException;
@@ -450,6 +509,18 @@ public  abstract class UserService
         throws com.google.protobuf.ServiceException {
       return (com.google.protobuf.Empty) channel.callBlockingMethod(
         getDescriptor().getMethods().get(3),
+        controller,
+        request,
+        com.google.protobuf.Empty.getDefaultInstance());
+    }
+
+
+    public com.google.protobuf.Empty testStream(
+        com.google.protobuf.RpcController controller,
+        com.google.protobuf.Empty request)
+        throws com.google.protobuf.ServiceException {
+      return (com.google.protobuf.Empty) channel.callBlockingMethod(
+        getDescriptor().getMethods().get(4),
         controller,
         request,
         com.google.protobuf.Empty.getDefaultInstance());
