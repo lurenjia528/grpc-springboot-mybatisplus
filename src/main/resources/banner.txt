@@ -11,4 +11,4 @@ ${AnsiColor.BRIGHT_MAGENTA}
     \::/  /        /:/  /        /:/  /       \::/  /
      \/__/         \/__/         \/__/         \/__/
 springboot:  ${spring-boot.version}
-Copyright ©2019 中软信息系统工程
+Copyright ©2020 中软信息系统工程

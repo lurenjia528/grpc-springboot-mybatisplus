@@ -154,29 +154,29 @@ public final class UserServiceGrpc {
     return getGetMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      com.google.protobuf.Empty> getTestStreamMethod;
+  private static volatile io.grpc.MethodDescriptor<com.csse.grpc.generate.Message,
+      com.csse.grpc.generate.Message> getTestStreamMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "TestStream",
-      requestType = com.google.protobuf.Empty.class,
-      responseType = com.google.protobuf.Empty.class,
+      requestType = com.csse.grpc.generate.Message.class,
+      responseType = com.csse.grpc.generate.Message.class,
       methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
-  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      com.google.protobuf.Empty> getTestStreamMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, com.google.protobuf.Empty> getTestStreamMethod;
+  public static io.grpc.MethodDescriptor<com.csse.grpc.generate.Message,
+      com.csse.grpc.generate.Message> getTestStreamMethod() {
+    io.grpc.MethodDescriptor<com.csse.grpc.generate.Message, com.csse.grpc.generate.Message> getTestStreamMethod;
     if ((getTestStreamMethod = UserServiceGrpc.getTestStreamMethod) == null) {
       synchronized (UserServiceGrpc.class) {
         if ((getTestStreamMethod = UserServiceGrpc.getTestStreamMethod) == null) {
           UserServiceGrpc.getTestStreamMethod = getTestStreamMethod =
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.csse.grpc.generate.Message, com.csse.grpc.generate.Message>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "TestStream"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  com.csse.grpc.generate.Message.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  com.csse.grpc.generate.Message.getDefaultInstance()))
               .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("TestStream"))
               .build();
         }
@@ -269,8 +269,8 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public io.grpc.stub.StreamObserver<com.google.protobuf.Empty> testStream(
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+    public io.grpc.stub.StreamObserver<com.csse.grpc.generate.Message> testStream(
+        io.grpc.stub.StreamObserver<com.csse.grpc.generate.Message> responseObserver) {
       return asyncUnimplementedStreamingCall(getTestStreamMethod(), responseObserver);
     }
 
@@ -308,8 +308,8 @@ public final class UserServiceGrpc {
             getTestStreamMethod(),
             asyncBidiStreamingCall(
               new MethodHandlers<
-                com.google.protobuf.Empty,
-                com.google.protobuf.Empty>(
+                com.csse.grpc.generate.Message,
+                com.csse.grpc.generate.Message>(
                   this, METHODID_TEST_STREAM)))
           .build();
     }
@@ -369,8 +369,8 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public io.grpc.stub.StreamObserver<com.google.protobuf.Empty> testStream(
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+    public io.grpc.stub.StreamObserver<com.csse.grpc.generate.Message> testStream(
+        io.grpc.stub.StreamObserver<com.csse.grpc.generate.Message> responseObserver) {
       return asyncBidiStreamingCall(
           getChannel().newCall(getTestStreamMethod(), getCallOptions()), responseObserver);
     }
@@ -529,7 +529,7 @@ public final class UserServiceGrpc {
       switch (methodId) {
         case METHODID_TEST_STREAM:
           return (io.grpc.stub.StreamObserver<Req>) serviceImpl.testStream(
-              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.csse.grpc.generate.Message>) responseObserver);
         default:
           throw new AssertionError();
       }

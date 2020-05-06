@@ -84,27 +84,44 @@ public class GrpcController extends UserServiceGrpc.UserServiceImplBase {
     public void get(Empty request, StreamObserver<Empty> responseObserver) {
         Empty build = Empty.newBuilder().build();
         System.out.println("kong");
+        if (null != build) {
+            throw new StatusRuntimeException(Status.NOT_FOUND
+                    .withCause(new NullPointerException().getCause())
+                    .withDescription("test exception"), new Metadata());
+        }
+//        int a = 3/0;
         responseObserver.onNext(build);
         responseObserver.onCompleted();
     }
 
     @Override
-    public StreamObserver<Empty> testStream(StreamObserver<Empty> responseObserver) {
-        return new StreamObserver<Empty>() {
+    public StreamObserver<Message> testStream(StreamObserver<Message> responseObserver) {
+        return new StreamObserver<Message>() {
             @Override
-            public void onNext(Empty value) {
-
+            public void onNext(Message value) {
+                System.out.println("服务端：收到请求");
+                while (true) {
+                    Message msg = Message.newBuilder().setType("123").setData("直播").build();
+                    responseObserver.onNext(msg);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
 
             @Override
             public void onError(Throwable t) {
-
+                System.out.printf("服务端：发生错误:%s", t.getCause());
             }
 
             @Override
             public void onCompleted() {
-
+                System.out.println("服务端：完成");
+                responseObserver.onCompleted();
             }
         };
+
     }
 }
