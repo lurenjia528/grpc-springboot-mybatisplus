@@ -1,6 +1,6 @@
 # 编译
 ```bash
-protoc --plugin=protoc-gen-grpc-java=/home/ht061/gocode/bin/protoc-gen-grpc-java --grpc-java_out=src/main/java/ --java_out=src/main/java/  --plugin=protoc-gen-doc=/home/lurenjia/gopath/bin/protoc-gen-doc --doc_out=./doc --doc_opt=html,index.html src/main/proto/user.proto
+protoc --plugin=protoc-gen-grpc-java=/home/ht061/gocode/bin/protoc-gen-grpc-java --grpc-java_out=src/main/java/ --java_out=src/main/java/  --plugin=protoc-gen-doc=/home/ht061/gocode/bin/protoc-gen-doc --doc_out=./doc --doc_opt=html,index.html src/main/proto/user.proto
 ```
 
 # 生成文档

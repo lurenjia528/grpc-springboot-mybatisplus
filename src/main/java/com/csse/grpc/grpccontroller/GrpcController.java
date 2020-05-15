@@ -1,7 +1,10 @@
 package com.csse.grpc.grpccontroller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.csse.grpc.common.ProtoBeanUtils;
 import com.csse.grpc.dao.BasUserMapper;
 import com.csse.grpc.generate.*;
+import com.csse.grpc.model.BasUser;
 import com.google.protobuf.Any;
 import com.google.protobuf.Empty;
 import io.grpc.Metadata;
@@ -11,6 +14,8 @@ import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 
 import javax.annotation.Resource;
+import java.io.IOException;
+import java.util.List;
 
 /**
  * @author yanggt
@@ -54,55 +59,28 @@ public class GrpcController extends UserServiceGrpc.UserServiceImplBase {
 
     @Override
     public void getUserAll(PageParam request, StreamObserver<AllUser> responseObserver) {
-//        System.out.println("------------------------");
-//        System.out.println("收到请求");
-//        System.out.println("------------------------");
-//        long pageNo = request.getPageNo();
-//        long pageSize = request.getPageSize();
-//        Page<BasUser> page = new Page<>();
-//        page.setCurrent(pageNo == 0 ? 1 : pageNo);
-//        page.setSize(pageSize == 0 ? 10 : pageSize);
-//        List<BasUser> records = basUserMapper.selectPage(page, null).getRecords();
-//        AllUser.Builder allUser = AllUser.newBuilder();
-//        allUser = allUser.setCode(ResponseCode.SUCCESS)
-//                .setMsg("查询成功");
-//        for (BasUser record : records) {
-//            allUser.addDataBuilder()
-//                    .setUserId(record.getUserId())
-//                    .setUserNo(record.getUserNo())
-//                    .setUserName(record.getUserName())
-//                    .setNickName(record.getNickName() == null ? "null" : record.getNickName())
-//                    .setUserHead(record.getUserHead() == null ? "null" : record.getUserHead())
-//                    .setPersonName(record.getPersonName() == null ? "null" : record.getPersonName())
-//                    .setPinyName(record.getPinyName() == null ? "null" : record.getPinyName())
-//                    .build();
-//        }
-//        responseObserver.onNext(allUser.build());
-//        responseObserver.onCompleted();
-
         System.out.println("------------------------");
         System.out.println("收到请求");
         System.out.println("------------------------");
         long pageNo = request.getPageNo();
         long pageSize = request.getPageSize();
-//        Page<BasUser> page = new Page<>();
-//        page.setCurrent(pageNo == 0 ? 1 : pageNo);
-//        page.setSize(pageSize == 0 ? 10 : pageSize);
-        UserRequest.Builder builder = basUserMapper.selectOneUser();
+        Page<BasUser> page = new Page<>();
+        page.setCurrent(pageNo == 0 ? 1 : pageNo);
+        page.setSize(pageSize == 0 ? 10 : pageSize);
+        List<BasUser> records = basUserMapper.selectPage(page, null).getRecords();
         AllUser.Builder allUser = AllUser.newBuilder();
-        allUser = allUser.setCode(ResponseCode.SUCCESS).addData(0,builder)
+        allUser = allUser.setCode(ResponseCode.SUCCESS)
                 .setMsg("查询成功");
-//        for (BasUser record : records) {
-//            allUser.addDataBuilder()
-//                    .setUserId(record.getUserId())
-//                    .setUserNo(record.getUserNo())
-//                    .setUserName(record.getUserName())
-//                    .setNickName(record.getNickName() == null ? "null" : record.getNickName())
-//                    .setUserHead(record.getUserHead() == null ? "null" : record.getUserHead())
-//                    .setPersonName(record.getPersonName() == null ? "null" : record.getPersonName())
-//                    .setPinyName(record.getPinyName() == null ? "null" : record.getPinyName())
-//                    .build();
-//        }
+        for (int i = 0; i < records.size(); i++) {
+            UserRequest.Builder builder1 = UserRequest.newBuilder();
+            try {
+                ProtoBeanUtils.toProtoBean(builder1, records.get(i));
+                UserRequest build = builder1.build();
+                allUser.addData(i, build);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         responseObserver.onNext(allUser.build());
         responseObserver.onCompleted();
     }
