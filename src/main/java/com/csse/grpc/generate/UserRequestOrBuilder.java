@@ -8,11 +8,19 @@ public interface UserRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   *用户id
+   * </pre>
+   *
    * <code>string userId = 1;</code>
    * @return The userId.
    */
   java.lang.String getUserId();
   /**
+   * <pre>
+   *用户id
+   * </pre>
+   *
    * <code>string userId = 1;</code>
    * @return The bytes for userId.
    */
@@ -32,11 +40,19 @@ public interface UserRequestOrBuilder extends
       getUserNoBytes();
 
   /**
+   * <pre>
+   * 用户名
+   * </pre>
+   *
    * <code>string userName = 3;</code>
    * @return The userName.
    */
   java.lang.String getUserName();
   /**
+   * <pre>
+   * 用户名
+   * </pre>
+   *
    * <code>string userName = 3;</code>
    * @return The bytes for userName.
    */

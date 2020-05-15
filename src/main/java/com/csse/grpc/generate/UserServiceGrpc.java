@@ -2,18 +2,11 @@ package com.csse.grpc.generate;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ClientCalls.asyncUnaryCall;
-import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
-import static io.grpc.stub.ClientCalls.blockingUnaryCall;
-import static io.grpc.stub.ClientCalls.futureUnaryCall;
+import static io.grpc.stub.ClientCalls.*;
 import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
+import static io.grpc.stub.ServerCalls.*;
 
 /**
  * <pre>
@@ -185,6 +178,37 @@ public final class UserServiceGrpc {
     return getTestStreamMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      com.csse.grpc.generate.Response> getTestAnyMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "TestAny",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = com.csse.grpc.generate.Response.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      com.csse.grpc.generate.Response> getTestAnyMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, com.csse.grpc.generate.Response> getTestAnyMethod;
+    if ((getTestAnyMethod = UserServiceGrpc.getTestAnyMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getTestAnyMethod = UserServiceGrpc.getTestAnyMethod) == null) {
+          UserServiceGrpc.getTestAnyMethod = getTestAnyMethod =
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, com.csse.grpc.generate.Response>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "TestAny"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.csse.grpc.generate.Response.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("TestAny"))
+              .build();
+        }
+      }
+    }
+    return getTestAnyMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -274,6 +298,13 @@ public final class UserServiceGrpc {
       return asyncUnimplementedStreamingCall(getTestStreamMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void testAny(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<com.csse.grpc.generate.Response> responseObserver) {
+      asyncUnimplementedUnaryCall(getTestAnyMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -311,6 +342,13 @@ public final class UserServiceGrpc {
                 com.csse.grpc.generate.Message,
                 com.csse.grpc.generate.Message>(
                   this, METHODID_TEST_STREAM)))
+          .addMethod(
+            getTestAnyMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.google.protobuf.Empty,
+                com.csse.grpc.generate.Response>(
+                  this, METHODID_TEST_ANY)))
           .build();
     }
   }
@@ -374,6 +412,14 @@ public final class UserServiceGrpc {
       return asyncBidiStreamingCall(
           getChannel().newCall(getTestStreamMethod(), getCallOptions()), responseObserver);
     }
+
+    /**
+     */
+    public void testAny(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<com.csse.grpc.generate.Response> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getTestAnyMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -422,6 +468,13 @@ public final class UserServiceGrpc {
     public com.google.protobuf.Empty get(com.google.protobuf.Empty request) {
       return blockingUnaryCall(
           getChannel(), getGetMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.csse.grpc.generate.Response testAny(com.google.protobuf.Empty request) {
+      return blockingUnaryCall(
+          getChannel(), getTestAnyMethod(), getCallOptions(), request);
     }
   }
 
@@ -476,13 +529,22 @@ public final class UserServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getGetMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.csse.grpc.generate.Response> testAny(
+        com.google.protobuf.Empty request) {
+      return futureUnaryCall(
+          getChannel().newCall(getTestAnyMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_USER = 0;
   private static final int METHODID_DELETE_USER = 1;
   private static final int METHODID_GET_USER_ALL = 2;
   private static final int METHODID_GET = 3;
-  private static final int METHODID_TEST_STREAM = 4;
+  private static final int METHODID_TEST_ANY = 4;
+  private static final int METHODID_TEST_STREAM = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -516,6 +578,10 @@ public final class UserServiceGrpc {
         case METHODID_GET:
           serviceImpl.get((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_TEST_ANY:
+          serviceImpl.testAny((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<com.csse.grpc.generate.Response>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -586,6 +652,7 @@ public final class UserServiceGrpc {
               .addMethod(getGetUserAllMethod())
               .addMethod(getGetMethod())
               .addMethod(getTestStreamMethod())
+              .addMethod(getTestAnyMethod())
               .build();
         }
       }

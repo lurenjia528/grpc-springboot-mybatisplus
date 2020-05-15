@@ -1,7 +1,10 @@
 package com.csse.grpc.grpcclient;
 
+import com.csse.grpc.generate.Response;
+import com.csse.grpc.generate.UserRequest;
 import com.csse.grpc.generate.UserServiceGrpc;
 import com.google.protobuf.Empty;
+import com.google.protobuf.InvalidProtocolBufferException;
 import io.grpc.Metadata;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.stereotype.Service;
@@ -26,8 +29,17 @@ public class GrpcClientController {
 //                .build()
 //        );
 //        return user.getMsg();
-        Empty empty = stub.get(Empty.newBuilder().build());
+//        Empty empty = stub.get(Empty.newBuilder().build());
+//        System.out.println("输出吗");
+        Response response = stub.testAny(Empty.newBuilder().build());
+        UserRequest unpack = null;
+        try {
+            unpack = response.getData().unpack(UserRequest.class);
+        } catch (InvalidProtocolBufferException e) {
+            e.printStackTrace();
+        }
         System.out.println("输出吗");
-        return empty.toString();
+        System.out.println(unpack.getNickName());
+        return response.toString();
     }
 }

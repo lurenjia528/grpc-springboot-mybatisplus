@@ -22,6 +22,7 @@ public class GrpcAdvice implements ServerInterceptor {
                     System.out.println("StatusRuntimeException---------------");
                     call.close(e.getStatus(), e.getTrailers());
                 } catch (Exception e) {
+                    e.printStackTrace();
                     System.out.println("Exception----------------");
                     call.close(Status.INTERNAL
                             .withCause(e.getCause())

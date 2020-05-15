@@ -2,6 +2,7 @@ package com.csse.grpc.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.csse.grpc.generate.UserRequest;
 import com.csse.grpc.model.BasUser;
 import org.apache.ibatis.annotations.Param;
 
@@ -21,5 +22,5 @@ public interface BasUserMapper extends BaseMapper<BasUser> {
      * @return
      */
     public List<BasUser> selectUserPage(@Param("searchName")String searchName, Page<BasUser> page);
-
+     UserRequest.Builder selectOneUser();
 }

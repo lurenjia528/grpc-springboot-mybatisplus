@@ -36,7 +36,7 @@ public final class UserProto {
       internal_static_AllUser_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Message_descriptor;
-  static final
+  static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Message_fieldAccessorTable;
 
@@ -49,28 +49,33 @@ public final class UserProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\031src/main/proto/user.proto\032\033google/prot" +
-      "obuf/empty.proto\"\211\001\n\013UserRequest\022\016\n\006user" +
-      "Id\030\001 \001(\t\022\016\n\006userNo\030\002 \001(\t\022\020\n\010userName\030\003 \001" +
-      "(\t\022\020\n\010userHead\030\004 \001(\t\022\020\n\010nickName\030\005 \001(\t\022\022" +
-      "\n\npersonName\030\006 \001(\t\022\020\n\010pinyName\030\007 \001(\t\"P\n\010" +
-      "Response\022\033\n\004code\030\001 \001(\0162\r.ResponseCode\022\013\n" +
-      "\003msg\030\002 \001(\t\022\032\n\004data\030\003 \001(\0132\014.UserRequest\"-" +
-      "\n\tPageParam\022\016\n\006pageNo\030\001 \001(\003\022\020\n\010pageSize\030" +
-      "\002 \001(\003\"X\n\007AllUser\022\033\n\004code\030\001 \001(\0162\r.Respons" +
-      "eCode\022\024\n\003msg\030\002 \001(\tR\007message\022\032\n\004data\030\003 \003(" +
-      "\0132\014.UserRequest*4\n\014ResponseCode\022\013\n\007DEFAU" +
-      "LT\020\000\022\t\n\004FAIL\020\364\003\022\014\n\007SUCCESS\020\310\0012\273\001\n\013UserSe" +
-      "rvice\022$\n\007GetUser\022\014.UserRequest\032\t.Respons" +
-      "e\"\000\022\'\n\nDeleteUser\022\014.UserRequest\032\t.Respon" +
-      "se\"\000\022$\n\nGetUserAll\022\n.PageParam\032\010.AllUser" +
-      "\"\000\0227\n\003Get\022\026.google.protobuf.Empty\032\026.goog" +
-      "le.protobuf.Empty\"\000B(\n\026com.csse.grpc.gen" +
-      "erateB\tUserProtoP\001\210\001\001b\006proto3"
+      "obuf/empty.proto\032\031google/protobuf/any.pr" +
+      "oto\"\211\001\n\013UserRequest\022\016\n\006userId\030\001 \001(\t\022\016\n\006u" +
+      "serNo\030\002 \001(\t\022\020\n\010userName\030\003 \001(\t\022\020\n\010userHea" +
+      "d\030\004 \001(\t\022\020\n\010nickName\030\005 \001(\t\022\022\n\npersonName\030" +
+      "\006 \001(\t\022\020\n\010pinyName\030\007 \001(\t\"X\n\010Response\022\033\n\004c" +
+      "ode\030\001 \001(\0162\r.ResponseCode\022\013\n\003msg\030\002 \001(\t\022\"\n" +
+      "\004data\030\003 \001(\0132\024.google.protobuf.Any\"-\n\tPag" +
+      "eParam\022\016\n\006pageNo\030\001 \001(\003\022\020\n\010pageSize\030\002 \001(\003" +
+      "\"X\n\007AllUser\022\033\n\004code\030\001 \001(\0162\r.ResponseCode" +
+      "\022\024\n\003msg\030\002 \001(\tR\007message\022\032\n\004data\030\003 \003(\0132\014.U" +
+      "serRequest\"%\n\007Message\022\014\n\004type\030\001 \001(\t\022\014\n\004d" +
+      "ata\030\002 \001(\t*4\n\014ResponseCode\022\013\n\007DEFAULT\020\000\022\t" +
+      "\n\004FAIL\020\364\003\022\014\n\007SUCCESS\020\310\0012\223\002\n\013UserService\022" +
+      "$\n\007GetUser\022\014.UserRequest\032\t.Response\"\000\022\'\n" +
+      "\nDeleteUser\022\014.UserRequest\032\t.Response\"\000\022$" +
+      "\n\nGetUserAll\022\n.PageParam\032\010.AllUser\"\000\0227\n\003" +
+      "Get\022\026.google.protobuf.Empty\032\026.google.pro" +
+      "tobuf.Empty\"\000\022&\n\nTestStream\022\010.Message\032\010." +
+      "Message\"\000(\0010\001\022.\n\007TestAny\022\026.google.protob" +
+      "uf.Empty\032\t.Response\"\000B(\n\026com.csse.grpc.g" +
+      "enerateB\tUserProtoP\001\210\001\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.EmptyProto.getDescriptor(),
+          com.google.protobuf.AnyProto.getDescriptor(),
         });
     internal_static_UserRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -103,6 +108,7 @@ public final class UserProto {
         internal_static_Message_descriptor,
         new java.lang.String[] { "Type", "Data", });
     com.google.protobuf.EmptyProto.getDescriptor();
+    com.google.protobuf.AnyProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

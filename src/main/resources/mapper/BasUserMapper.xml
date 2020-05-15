@@ -12,6 +12,22 @@
         <result column="PINY_NAME" property="pinyName" />
     </resultMap>
 
+    <resultMap id="UserRequestBuilder" type="com.csse.grpc.generate.UserRequest$Builder">
+        <id column="USER_ID" property="userId" />
+        <result column="USER_NO" property="userNo" />
+        <result column="USER_NAME" property="userName" />
+        <result column="USER_HEAD" property="userHead" />
+        <result column="NICK_NAME" property="nickName" />
+        <result column="PERSON_NAME" property="personName" />
+        <result column="PINY_NAME" property="pinyName" />
+    </resultMap>
+
+
+    <select id="selectOneUser" resultMap="UserRequestBuilder">
+        select user_id ,user_no,user_name,user_head,nick_name,person_name,piny_name
+        from grpc.bas_user
+        where 1=1
+    </select>
 
     <select id="selectUserPage" resultMap="BasUserMap">
         select user_id ,user_no,user_name,user_head,nick_name,person_name,piny_name

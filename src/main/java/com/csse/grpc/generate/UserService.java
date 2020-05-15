@@ -59,6 +59,14 @@ public  abstract class UserService
         com.csse.grpc.generate.Message request,
         com.google.protobuf.RpcCallback<com.csse.grpc.generate.Message> done);
 
+    /**
+     * <code>rpc TestAny(.google.protobuf.Empty) returns (.Response);</code>
+     */
+    public abstract void testAny(
+        com.google.protobuf.RpcController controller,
+        com.google.protobuf.Empty request,
+        com.google.protobuf.RpcCallback<com.csse.grpc.generate.Response> done);
+
   }
 
   public static com.google.protobuf.Service newReflectiveService(
@@ -104,6 +112,14 @@ public  abstract class UserService
         impl.testStream(controller, request, done);
       }
 
+      @java.lang.Override
+      public  void testAny(
+          com.google.protobuf.RpcController controller,
+          com.google.protobuf.Empty request,
+          com.google.protobuf.RpcCallback<com.csse.grpc.generate.Response> done) {
+        impl.testAny(controller, request, done);
+      }
+
     };
   }
 
@@ -136,6 +152,8 @@ public  abstract class UserService
             return impl.get(controller, (com.google.protobuf.Empty)request);
           case 4:
             return impl.testStream(controller, (com.csse.grpc.generate.Message)request);
+          case 5:
+            return impl.testAny(controller, (com.google.protobuf.Empty)request);
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -160,6 +178,8 @@ public  abstract class UserService
             return com.google.protobuf.Empty.getDefaultInstance();
           case 4:
             return com.csse.grpc.generate.Message.getDefaultInstance();
+          case 5:
+            return com.google.protobuf.Empty.getDefaultInstance();
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -184,6 +204,8 @@ public  abstract class UserService
             return com.google.protobuf.Empty.getDefaultInstance();
           case 4:
             return com.csse.grpc.generate.Message.getDefaultInstance();
+          case 5:
+            return com.csse.grpc.generate.Response.getDefaultInstance();
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -236,6 +258,14 @@ public  abstract class UserService
       com.csse.grpc.generate.Message request,
       com.google.protobuf.RpcCallback<com.csse.grpc.generate.Message> done);
 
+  /**
+   * <code>rpc TestAny(.google.protobuf.Empty) returns (.Response);</code>
+   */
+  public abstract void testAny(
+      com.google.protobuf.RpcController controller,
+      com.google.protobuf.Empty request,
+      com.google.protobuf.RpcCallback<com.csse.grpc.generate.Response> done);
+
   public static final
       com.google.protobuf.Descriptors.ServiceDescriptor
       getDescriptor() {
@@ -283,6 +313,11 @@ public  abstract class UserService
           com.google.protobuf.RpcUtil.<com.csse.grpc.generate.Message>specializeCallback(
             done));
         return;
+      case 5:
+        this.testAny(controller, (com.google.protobuf.Empty)request,
+          com.google.protobuf.RpcUtil.<com.csse.grpc.generate.Response>specializeCallback(
+            done));
+        return;
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -307,6 +342,8 @@ public  abstract class UserService
         return com.google.protobuf.Empty.getDefaultInstance();
       case 4:
         return com.csse.grpc.generate.Message.getDefaultInstance();
+      case 5:
+        return com.google.protobuf.Empty.getDefaultInstance();
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -331,6 +368,8 @@ public  abstract class UserService
         return com.google.protobuf.Empty.getDefaultInstance();
       case 4:
         return com.csse.grpc.generate.Message.getDefaultInstance();
+      case 5:
+        return com.csse.grpc.generate.Response.getDefaultInstance();
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -426,6 +465,21 @@ public  abstract class UserService
           com.csse.grpc.generate.Message.class,
           com.csse.grpc.generate.Message.getDefaultInstance()));
     }
+
+    public  void testAny(
+        com.google.protobuf.RpcController controller,
+        com.google.protobuf.Empty request,
+        com.google.protobuf.RpcCallback<com.csse.grpc.generate.Response> done) {
+      channel.callMethod(
+        getDescriptor().getMethods().get(5),
+        controller,
+        request,
+        com.csse.grpc.generate.Response.getDefaultInstance(),
+        com.google.protobuf.RpcUtil.generalizeCallback(
+          done,
+          com.csse.grpc.generate.Response.class,
+          com.csse.grpc.generate.Response.getDefaultInstance()));
+    }
   }
 
   public static BlockingInterface newBlockingStub(
@@ -457,6 +511,11 @@ public  abstract class UserService
     public com.csse.grpc.generate.Message testStream(
         com.google.protobuf.RpcController controller,
         com.csse.grpc.generate.Message request)
+        throws com.google.protobuf.ServiceException;
+
+    public com.csse.grpc.generate.Response testAny(
+        com.google.protobuf.RpcController controller,
+        com.google.protobuf.Empty request)
         throws com.google.protobuf.ServiceException;
   }
 
@@ -524,6 +583,18 @@ public  abstract class UserService
         controller,
         request,
         com.csse.grpc.generate.Message.getDefaultInstance());
+    }
+
+
+    public com.csse.grpc.generate.Response testAny(
+        com.google.protobuf.RpcController controller,
+        com.google.protobuf.Empty request)
+        throws com.google.protobuf.ServiceException {
+      return (com.csse.grpc.generate.Response) channel.callBlockingMethod(
+        getDescriptor().getMethods().get(5),
+        controller,
+        request,
+        com.csse.grpc.generate.Response.getDefaultInstance());
     }
 
   }

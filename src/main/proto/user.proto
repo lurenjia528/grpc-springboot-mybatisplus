@@ -3,7 +3,7 @@ syntax = "proto3";
 import "google/protobuf/empty.proto";
 //import "google/protobuf/wrappers.proto";
 //import "google/protobuf/struct.proto";
-
+import "google/protobuf/any.proto";
 option java_multiple_files = true;
 option java_package = "com.csse.grpc.generate";
 option java_outer_classname = "UserProto";
@@ -27,7 +27,7 @@ message UserRequest {
 message Response {
   ResponseCode code = 1;
   string msg = 2;
-  UserRequest data = 3;
+  google.protobuf.Any data = 3;
 }
 
 enum ResponseCode {
@@ -48,8 +48,8 @@ message AllUser {
 }
 
 message Message {
-	string type     = 1;  //消息类型
-	string  data     = 2;  //消息内容
+  string type = 1;  //消息类型
+  string  data = 2;  //消息内容
 }
 
 // service 方法参数 只接受message返回message
@@ -60,4 +60,5 @@ service UserService {
   // 空
   rpc Get(google.protobuf.Empty)returns(google.protobuf.Empty){};
   rpc TestStream(stream Message) returns(stream Message){};
+  rpc TestAny(google.protobuf.Empty) returns(Response){};
 }

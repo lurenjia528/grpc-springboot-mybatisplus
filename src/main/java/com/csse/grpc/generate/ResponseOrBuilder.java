@@ -31,17 +31,17 @@ public interface ResponseOrBuilder extends
       getMsgBytes();
 
   /**
-   * <code>.UserRequest data = 3;</code>
+   * <code>.google.protobuf.Any data = 3;</code>
    * @return Whether the data field is set.
    */
   boolean hasData();
   /**
-   * <code>.UserRequest data = 3;</code>
+   * <code>.google.protobuf.Any data = 3;</code>
    * @return The data.
    */
-  com.csse.grpc.generate.UserRequest getData();
+  com.google.protobuf.Any getData();
   /**
-   * <code>.UserRequest data = 3;</code>
+   * <code>.google.protobuf.Any data = 3;</code>
    */
-  com.csse.grpc.generate.UserRequestOrBuilder getDataOrBuilder();
+  com.google.protobuf.AnyOrBuilder getDataOrBuilder();
 }

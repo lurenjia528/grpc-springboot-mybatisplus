@@ -63,11 +63,11 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 26: {
-            com.csse.grpc.generate.UserRequest.Builder subBuilder = null;
+            com.google.protobuf.Any.Builder subBuilder = null;
             if (data_ != null) {
               subBuilder = data_.toBuilder();
             }
-            data_ = input.readMessage(com.csse.grpc.generate.UserRequest.parser(), extensionRegistry);
+            data_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(data_);
               data_ = subBuilder.buildPartial();
@@ -163,25 +163,25 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATA_FIELD_NUMBER = 3;
-  private com.csse.grpc.generate.UserRequest data_;
+  private com.google.protobuf.Any data_;
   /**
-   * <code>.UserRequest data = 3;</code>
+   * <code>.google.protobuf.Any data = 3;</code>
    * @return Whether the data field is set.
    */
   public boolean hasData() {
     return data_ != null;
   }
   /**
-   * <code>.UserRequest data = 3;</code>
+   * <code>.google.protobuf.Any data = 3;</code>
    * @return The data.
    */
-  public com.csse.grpc.generate.UserRequest getData() {
-    return data_ == null ? com.csse.grpc.generate.UserRequest.getDefaultInstance() : data_;
+  public com.google.protobuf.Any getData() {
+    return data_ == null ? com.google.protobuf.Any.getDefaultInstance() : data_;
   }
   /**
-   * <code>.UserRequest data = 3;</code>
+   * <code>.google.protobuf.Any data = 3;</code>
    */
-  public com.csse.grpc.generate.UserRequestOrBuilder getDataOrBuilder() {
+  public com.google.protobuf.AnyOrBuilder getDataOrBuilder() {
     return getData();
   }
 
@@ -661,31 +661,31 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.csse.grpc.generate.UserRequest data_;
+    private com.google.protobuf.Any data_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.csse.grpc.generate.UserRequest, com.csse.grpc.generate.UserRequest.Builder, com.csse.grpc.generate.UserRequestOrBuilder> dataBuilder_;
+        com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> dataBuilder_;
     /**
-     * <code>.UserRequest data = 3;</code>
+     * <code>.google.protobuf.Any data = 3;</code>
      * @return Whether the data field is set.
      */
     public boolean hasData() {
       return dataBuilder_ != null || data_ != null;
     }
     /**
-     * <code>.UserRequest data = 3;</code>
+     * <code>.google.protobuf.Any data = 3;</code>
      * @return The data.
      */
-    public com.csse.grpc.generate.UserRequest getData() {
+    public com.google.protobuf.Any getData() {
       if (dataBuilder_ == null) {
-        return data_ == null ? com.csse.grpc.generate.UserRequest.getDefaultInstance() : data_;
+        return data_ == null ? com.google.protobuf.Any.getDefaultInstance() : data_;
       } else {
         return dataBuilder_.getMessage();
       }
     }
     /**
-     * <code>.UserRequest data = 3;</code>
+     * <code>.google.protobuf.Any data = 3;</code>
      */
-    public Builder setData(com.csse.grpc.generate.UserRequest value) {
+    public Builder setData(com.google.protobuf.Any value) {
       if (dataBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -699,10 +699,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.UserRequest data = 3;</code>
+     * <code>.google.protobuf.Any data = 3;</code>
      */
     public Builder setData(
-        com.csse.grpc.generate.UserRequest.Builder builderForValue) {
+        com.google.protobuf.Any.Builder builderForValue) {
       if (dataBuilder_ == null) {
         data_ = builderForValue.build();
         onChanged();
@@ -713,13 +713,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.UserRequest data = 3;</code>
+     * <code>.google.protobuf.Any data = 3;</code>
      */
-    public Builder mergeData(com.csse.grpc.generate.UserRequest value) {
+    public Builder mergeData(com.google.protobuf.Any value) {
       if (dataBuilder_ == null) {
         if (data_ != null) {
           data_ =
-            com.csse.grpc.generate.UserRequest.newBuilder(data_).mergeFrom(value).buildPartial();
+            com.google.protobuf.Any.newBuilder(data_).mergeFrom(value).buildPartial();
         } else {
           data_ = value;
         }
@@ -731,7 +731,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.UserRequest data = 3;</code>
+     * <code>.google.protobuf.Any data = 3;</code>
      */
     public Builder clearData() {
       if (dataBuilder_ == null) {
@@ -745,33 +745,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.UserRequest data = 3;</code>
+     * <code>.google.protobuf.Any data = 3;</code>
      */
-    public com.csse.grpc.generate.UserRequest.Builder getDataBuilder() {
+    public com.google.protobuf.Any.Builder getDataBuilder() {
       
       onChanged();
       return getDataFieldBuilder().getBuilder();
     }
     /**
-     * <code>.UserRequest data = 3;</code>
+     * <code>.google.protobuf.Any data = 3;</code>
      */
-    public com.csse.grpc.generate.UserRequestOrBuilder getDataOrBuilder() {
+    public com.google.protobuf.AnyOrBuilder getDataOrBuilder() {
       if (dataBuilder_ != null) {
         return dataBuilder_.getMessageOrBuilder();
       } else {
         return data_ == null ?
-            com.csse.grpc.generate.UserRequest.getDefaultInstance() : data_;
+            com.google.protobuf.Any.getDefaultInstance() : data_;
       }
     }
     /**
-     * <code>.UserRequest data = 3;</code>
+     * <code>.google.protobuf.Any data = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.csse.grpc.generate.UserRequest, com.csse.grpc.generate.UserRequest.Builder, com.csse.grpc.generate.UserRequestOrBuilder> 
+        com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> 
         getDataFieldBuilder() {
       if (dataBuilder_ == null) {
         dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.csse.grpc.generate.UserRequest, com.csse.grpc.generate.UserRequest.Builder, com.csse.grpc.generate.UserRequestOrBuilder>(
+            com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
                 getData(),
                 getParentForChildren(),
                 isClean());

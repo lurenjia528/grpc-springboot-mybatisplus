@@ -4,6 +4,11 @@
 package com.csse.grpc.generate;
 
 /**
+ * <pre>
+ **
+ * 请求体
+ * </pre>
+ *
  * Protobuf type {@code UserRequest}
  */
 public  final class UserRequest extends
@@ -132,6 +137,10 @@ private static final long serialVersionUID = 0L;
   public static final int USERID_FIELD_NUMBER = 1;
   private volatile java.lang.Object userId_;
   /**
+   * <pre>
+   *用户id
+   * </pre>
+   *
    * <code>string userId = 1;</code>
    * @return The userId.
    */
@@ -148,6 +157,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   *用户id
+   * </pre>
+   *
    * <code>string userId = 1;</code>
    * @return The bytes for userId.
    */
@@ -204,6 +217,10 @@ private static final long serialVersionUID = 0L;
   public static final int USERNAME_FIELD_NUMBER = 3;
   private volatile java.lang.Object userName_;
   /**
+   * <pre>
+   * 用户名
+   * </pre>
+   *
    * <code>string userName = 3;</code>
    * @return The userName.
    */
@@ -220,6 +237,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 用户名
+   * </pre>
+   *
    * <code>string userName = 3;</code>
    * @return The bytes for userName.
    */
@@ -596,6 +617,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   **
+   * 请求体
+   * </pre>
+   *
    * Protobuf type {@code UserRequest}
    */
   public static final class Builder extends
@@ -787,6 +813,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object userId_ = "";
     /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
      * <code>string userId = 1;</code>
      * @return The userId.
      */
@@ -803,6 +833,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
      * <code>string userId = 1;</code>
      * @return The bytes for userId.
      */
@@ -820,6 +854,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
      * <code>string userId = 1;</code>
      * @param value The userId to set.
      * @return This builder for chaining.
@@ -835,6 +873,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
      * <code>string userId = 1;</code>
      * @return This builder for chaining.
      */
@@ -845,6 +887,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
      * <code>string userId = 1;</code>
      * @param value The bytes for userId to set.
      * @return This builder for chaining.
@@ -939,6 +985,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object userName_ = "";
     /**
+     * <pre>
+     * 用户名
+     * </pre>
+     *
      * <code>string userName = 3;</code>
      * @return The userName.
      */
@@ -955,6 +1005,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 用户名
+     * </pre>
+     *
      * <code>string userName = 3;</code>
      * @return The bytes for userName.
      */
@@ -972,6 +1026,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 用户名
+     * </pre>
+     *
      * <code>string userName = 3;</code>
      * @param value The userName to set.
      * @return This builder for chaining.
@@ -987,6 +1045,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 用户名
+     * </pre>
+     *
      * <code>string userName = 3;</code>
      * @return This builder for chaining.
      */
@@ -997,6 +1059,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 用户名
+     * </pre>
+     *
      * <code>string userName = 3;</code>
      * @param value The bytes for userName to set.
      * @return This builder for chaining.
