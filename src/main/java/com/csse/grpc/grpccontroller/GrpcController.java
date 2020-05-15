@@ -71,6 +71,19 @@ public class GrpcController extends UserServiceGrpc.UserServiceImplBase {
         AllUser.Builder allUser = AllUser.newBuilder();
         allUser = allUser.setCode(ResponseCode.SUCCESS)
                 .setMsg("查询成功");
+
+//        for (BasUser record : records) {
+//            allUser.addDataBuilder()
+//                    .setUserId(record.getUserId())
+//                    .setUserNo(record.getUserNo())
+//                    .setUserName(record.getUserName())
+//                    .setNickName(record.getNickName() == null ? "null" : record.getNickName())
+//                    .setUserHead(record.getUserHead() == null ? "null" : record.getUserHead())
+//                    .setPersonName(record.getPersonName() == null ? "null" : record.getPersonName())
+//                    .setPinyName(record.getPinyName() == null ? "null" : record.getPinyName())
+//                    .build();
+//        }
+
         for (int i = 0; i < records.size(); i++) {
             UserRequest.Builder builder1 = UserRequest.newBuilder();
             try {
@@ -81,6 +94,7 @@ public class GrpcController extends UserServiceGrpc.UserServiceImplBase {
                 e.printStackTrace();
             }
         }
+
         responseObserver.onNext(allUser.build());
         responseObserver.onCompleted();
     }
