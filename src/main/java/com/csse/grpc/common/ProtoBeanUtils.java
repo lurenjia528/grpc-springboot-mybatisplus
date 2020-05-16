@@ -9,8 +9,8 @@ import com.google.protobuf.util.JsonFormat;
 import java.io.IOException;
 
 /**
- * @see https://segmentfault.com/a/1190000020288933
- * @see https://donespeak.gitlab.io/posts/190827-protobuf-json-interconvert/
+ * https://segmentfault.com/a/1190000020288933
+ * https://donespeak.gitlab.io/posts/190827-protobuf-json-interconvert/
  * 相互转化的两个对象的getter和setter字段要完全的匹配。
  * 此外，对于ProtoBean中的enum和bytes，与POJO转化时遵循如下的规则：
  * <ol>
